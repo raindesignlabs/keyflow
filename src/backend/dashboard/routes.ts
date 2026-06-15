@@ -13,6 +13,7 @@ import { listJobs, getJob, getJobEvents, getStats, getDailyStats } from "./jobs-
 import { crmRoutes } from "./crm-routes.js";
 import { createSession, getSession, deleteSession } from "./session.js";
 import { getPilotSettings, savePilotSettings, type PilotSettings } from "./pilot-settings.js";
+import { sendEmail } from "../services/email.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DASHBOARD_APP_DIR = path.resolve(process.cwd(), "dist/frontend/dashboard");
@@ -523,6 +524,41 @@ export async function dashboardRoutes(app: FastifyInstance) {
       force_password_change: true,
     });
 
+    // Send invite email if address provided
+    if (email) {
+      try {
+        const dashboardUrl = process.env.DASHBOARD_URL || "https://keyflow.raindesignlabs.net/dashboard";
+        await sendEmail({
+          to: email,
+          subject: "Your KeyFlow Dashboard Access — Action Required",
+          text: `Hi ${display_name},
+
+Your KeyFlow CRM dashboard is ready.
+
+Login: ${dashboardUrl}/login
+Username: ${username}
+Temporary Password: ${tempPassword}
+
+For security, you'll be asked to create a new password on first login.
+
+Questions? Reply to this email or call (360) 306-7579.
+`,
+          html: `<p>Hi ${escapeHtml(display_name)},</p>
+<p>Your KeyFlow CRM dashboard is ready.</p>
+<table style="background:#f3f4f6;padding:16px;border-radius:8px;margin:16px 0;font-family:monospace;font-size:14px;">
+  <tr><td><strong>Login URL:</strong></td><td><a href="${dashboardUrl}/login">${dashboardUrl}/login</a></td></tr>
+  <tr><td><strong>Username:</strong></td><td>${escapeHtml(username)}</td></tr>
+  <tr><td><strong>Temporary Password:</strong></td><td>${escapeHtml(tempPassword)}</td></tr>
+</table>
+<p>For security, you'll be asked to create a new password on first login.</p>
+<p>Questions? Reply to this email or call (360) 306-7579.</p>`,
+        });
+      } catch (err) {
+        console.error("[invite] Failed to send email:", err);
+        // Don't fail the invite if email fails — admin can resend manually
+      }
+    }
+
     return {
       id: user.id,
       username: user.username,
@@ -532,6 +568,7 @@ export async function dashboardRoutes(app: FastifyInstance) {
       organization_id: user.organization_id,
       client_id: user.client_id,
       force_password_change: true,
+      email_sent: !!email,
     };
   });
 }
