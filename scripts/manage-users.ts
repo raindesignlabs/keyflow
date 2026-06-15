@@ -54,8 +54,8 @@ async function main() {
       const clientId = getFlag("--client-id") || null;
       const orgId = getFlag("--org-id") || null;
       const displayName = getFlag("--display-name") || username;
-      const user = createUser({ username, password, role, client_id: clientId, organization_id: orgId, display_name: displayName });
-      console.log(`Created user: ${user.username} (role: ${user.role}, org: ${user.organization_id || "all"}, client_id: ${user.client_id || "all"}, display: ${user.display_name})`);
+      const user = createUser({ username, password, role, client_id: clientId, organization_id: orgId, display_name: displayName, force_password_change: role === "client" });
+      console.log(`Created user: ${user.username} (role: ${user.role}, org: ${user.organization_id || "all"}, client_id: ${user.client_id || "all"}, display: ${user.display_name}, force_password_change: ${user.force_password_change})`);
       break;
     }
 
@@ -82,10 +82,10 @@ async function main() {
         console.log("No users found.");
         break;
       }
-      console.log(`${"ID".padEnd(4)} ${"Username".padEnd(16)} ${"Role".padEnd(8)} ${"Client ID".padEnd(20)} ${"Org ID".padEnd(38)} Display Name`);
-      console.log("-".repeat(120));
+      console.log(`${"ID".padEnd(4)} ${"Username".padEnd(16)} ${"Role".padEnd(8)} ${"Client ID".padEnd(20)} ${"Org ID".padEnd(38)} ${"Force PW".padEnd(8)} Display Name`);
+      console.log("-".repeat(130));
       for (const u of users) {
-        console.log(`${String(u.id).padEnd(4)} ${u.username.padEnd(16)} ${u.role.padEnd(8)} ${(u.client_id || "—").padEnd(20)} ${(u.organization_id || "—").padEnd(38)} ${u.display_name}`);
+        console.log(`${String(u.id).padEnd(4)} ${u.username.padEnd(16)} ${u.role.padEnd(8)} ${(u.client_id || "—").padEnd(20)} ${(u.organization_id || "—").padEnd(38)} ${(u.force_password_change ? "YES" : "—").padEnd(8)} ${u.display_name}`);
       }
       console.log(`\n${users.length} user(s) total.`);
       break;

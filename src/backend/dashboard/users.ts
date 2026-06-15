@@ -24,6 +24,7 @@ export interface DashboardUser {
   client_id: string | null;
   organization_id: string | null; // UUID FK to Postgres organizations.id
   display_name: string;
+  force_password_change: number; // 0 = false, 1 = true (SQLite has no boolean)
   created_at: string;
   updated_at: string;
 }
@@ -57,6 +58,9 @@ export function getDb(): Database.Database {
   if (!colNames.includes("organization_id")) {
     _db.exec("ALTER TABLE users ADD COLUMN organization_id TEXT");
   }
+  if (!colNames.includes("force_password_change")) {
+    _db.exec("ALTER TABLE users ADD COLUMN force_password_change INTEGER NOT NULL DEFAULT 0");
+  }
 
   return _db;
 }
@@ -85,7 +89,7 @@ export function listUsers(): Omit<DashboardUser, "password_hash">[] {
   const db = getDb();
   return db
     .prepare(
-      "SELECT id, username, role, client_id, organization_id, display_name, created_at, updated_at FROM users ORDER BY id"
+      "SELECT id, username, role, client_id, organization_id, display_name, force_password_change, created_at, updated_at FROM users ORDER BY id"
     )
     .all() as Omit<DashboardUser, "password_hash">[];
 }
@@ -97,13 +101,14 @@ export function createUser(opts: {
   client_id?: string | null;
   organization_id?: string | null;
   display_name: string;
+  force_password_change?: boolean;
 }): DashboardUser {
   const db = getDb();
   const hash = bcrypt.hashSync(opts.password, 10);
   const info = db
     .prepare(
-      `INSERT INTO users (username, password_hash, role, client_id, organization_id, display_name)
-       VALUES (?, ?, ?, ?, ?, ?)`
+      `INSERT INTO users (username, password_hash, role, client_id, organization_id, display_name, force_password_change)
+       VALUES (?, ?, ?, ?, ?, ?, ?)`
     )
     .run(
       opts.username,
@@ -111,7 +116,8 @@ export function createUser(opts: {
       opts.role,
       opts.client_id ?? null,
       opts.organization_id ?? null,
-      opts.display_name
+      opts.display_name,
+      opts.force_password_change ? 1 : 0
     );
   return findUserById(info.lastInsertRowid as number)!;
 }
@@ -155,12 +161,13 @@ export function updateUser(
   return findUserById(id);
 }
 
-export function changePassword(id: number, newPassword: string): boolean {
+export function changePassword(id: number, newPassword: string, clearForceChange = true): boolean {
   const db = getDb();
   const hash = bcrypt.hashSync(newPassword, 10);
+  const forceChangeClause = clearForceChange ? ", force_password_change = 0" : "";
   const info = db
     .prepare(
-      `UPDATE users SET password_hash = ?, updated_at = datetime('now') WHERE id = ?`
+      `UPDATE users SET password_hash = ?, updated_at = datetime('now')${forceChangeClause} WHERE id = ?`
     )
     .run(hash, id);
   return info.changes > 0;

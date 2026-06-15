@@ -146,6 +146,21 @@ export async function dashboardRoutes(app: FastifyInstance) {
 
       clearAttempts(ip);
       const token = createSession(username);
+
+      // If user must change password, redirect to password change page
+      if (user.force_password_change) {
+        reply
+          .setCookie("kf_session", token, {
+            httpOnly: true,
+            path: "/dashboard",
+            maxAge: 86400,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+          })
+          .redirect("/dashboard/change-password?forced=1");
+        return reply;
+      }
+
       reply
         .setCookie("kf_session", token, {
           httpOnly: true,
@@ -161,6 +176,33 @@ export async function dashboardRoutes(app: FastifyInstance) {
   app.get("/logout", async (_req, reply) => {
     reply.clearCookie("kf_session", { path: "/dashboard" }).redirect("/dashboard/login");
   });
+
+  // ── Password change page (for forced changes after invite) ───────────────
+  app.get("/change-password", async (request, reply) => {
+    const user = requireAuth(request, reply);
+    if (!user) return reply.redirect("/dashboard/login");
+    const forced = (request.query as Record<string, string>)?.forced === "1";
+    reply.type("text/html").send(changePasswordHtml(user, forced));
+    return reply;
+  });
+
+  // ── Forced password change API (no current password required) ────────────
+  app.post<{ Body: { new: string } }>(
+    "/api/force-change-password",
+    async (request, reply) => {
+      const user = requireAuth(request, reply);
+      if (!user) return reply.code(401).send({ error: "Unauthorized" });
+      if (!user.force_password_change) {
+        return reply.code(403).send({ error: "Password change not required." });
+      }
+      const { new: newPass } = request.body;
+      if (!newPass || newPass.length < 8) {
+        return reply.code(400).send({ error: "Password must be at least 8 characters." });
+      }
+      changePassword(user.id, newPass, true);
+      return { ok: true };
+    }
+  );
 
   // ── Dashboard v1.2 frontend assets ──────────────────────────────────────
   app.get<{ Params: { "*": string } }>("/assets/*", async (request, reply) => {
@@ -434,6 +476,64 @@ export async function dashboardRoutes(app: FastifyInstance) {
       return { ok: true };
     }
   );
+
+  // ── Admin: Invite client (auto-generate username + temp password) ────────
+  app.post<{
+    Body: {
+      display_name: string;
+      email?: string;
+      organization_id?: string;
+      client_id?: string;
+    };
+  }>("/api/invite", async (request, reply) => {
+    const admin = requireAdmin(request, reply);
+    if (!admin) return reply.code(403).send({ error: "Admin only" });
+
+    const { display_name, email, organization_id, client_id } = request.body;
+    if (!display_name) {
+      return reply.code(400).send({ error: "display_name is required." });
+    }
+
+    // Generate username from display name: lowercase, alphanumeric, no spaces
+    const baseUsername = display_name
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, "")
+      .slice(0, 20);
+    let username = baseUsername;
+    let suffix = 1;
+    while (findUser(username)) {
+      username = `${baseUsername}${suffix}`;
+      suffix++;
+    }
+
+    // Generate random temp password (12 chars, readable)
+    const tempPassword = Array.from({ length: 12 }, () =>
+      "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789"[
+        Math.floor(Math.random() * 56)
+      ]
+    ).join("");
+
+    const user = createUser({
+      username,
+      password: tempPassword,
+      role: "client",
+      client_id: client_id || null,
+      organization_id: organization_id || null,
+      display_name,
+      force_password_change: true,
+    });
+
+    return {
+      id: user.id,
+      username: user.username,
+      display_name: user.display_name,
+      temp_password: tempPassword,
+      role: user.role,
+      organization_id: user.organization_id,
+      client_id: user.client_id,
+      force_password_change: true,
+    };
+  });
 }
 
 // ── HTML Templates ────────────────────────────────────────────────────────
@@ -1193,4 +1293,108 @@ loadAttention();
 </body>
 </html>`;
   return html;
+}
+
+function changePasswordHtml(user: { display_name: string; force_password_change: number }, forced: boolean): string {
+  const title = forced ? "Change Your Password" : "Update Password";
+  const message = forced
+    ? "Welcome to KeyFlow! For security, please create a new password before continuing."
+    : "Update your password.";
+  const redirectUrl = forced ? "/dashboard" : "/dashboard/legacy";
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyFlow — ${title}</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0a0a0f; color: #e2e8f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 2.5rem; width: 400px; }
+    .logo { text-align: center; margin-bottom: 1.5rem; }
+    .logo span { font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+    .logo small { display: block; font-size: 0.75rem; color: #64748b; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; }
+    .message { text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5; }
+    .message strong { color: #e2e8f0; }
+    label { display: block; font-size: 0.8rem; color: #94a3b8; margin-bottom: 6px; margin-top: 1.2rem; }
+    input { width: 100%; padding: 0.65rem 0.85rem; background: #1e1e2e; border: 1px solid #2a2a3e; border-radius: 8px; color: #e2e8f0; font-size: 0.95rem; outline: none; }
+    input:focus { border-color: #6366f1; }
+    .hint { font-size: 0.75rem; color: #64748b; margin-top: 4px; }
+    .error { margin-top: 1rem; padding: 0.65rem 1rem; background: #3f1515; border: 1px solid #7f1d1d; border-radius: 8px; color: #fca5a5; font-size: 0.85rem; display: none; }
+    .success { margin-top: 1rem; padding: 0.65rem 1rem; background: #132e1e; border: 1px solid #1d7f3d; border-radius: 8px; color: #86efac; font-size: 0.85rem; display: none; }
+    button { width: 100%; margin-top: 1.8rem; padding: 0.75rem; background: #6366f1; border: none; border-radius: 8px; color: #fff; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.15s; }
+    button:hover { background: #4f46e5; }
+    button:disabled { background: #374151; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">
+      <span>KeyFlow</span>
+      <small>by Rain Design Labs</small>
+    </div>
+    <div class="message">${message}</div>
+    <form id="pwForm" onsubmit="return handleSubmit(event)">
+      <label>New Password</label>
+      <input type="password" id="newPass" required minlength="8" autocomplete="new-password">
+      <div class="hint">Minimum 8 characters</div>
+      <label>Confirm Password</label>
+      <input type="password" id="confirmPass" required minlength="8" autocomplete="new-password">
+      <div id="error" class="error"></div>
+      <div id="success" class="success">Password updated! Redirecting...</div>
+      <button type="submit" id="submitBtn">${forced ? "Set Password & Continue" : "Update Password"}</button>
+    </form>
+  </div>
+  <script>
+async function handleSubmit(e) {
+  e.preventDefault();
+  const newPass = document.getElementById('newPass').value;
+  const confirmPass = document.getElementById('confirmPass').value;
+  const errorDiv = document.getElementById('error');
+  const successDiv = document.getElementById('success');
+  const btn = document.getElementById('submitBtn');
+
+  if (newPass !== confirmPass) {
+    errorDiv.textContent = 'Passwords do not match.';
+    errorDiv.style.display = 'block';
+    return false;
+  }
+  if (newPass.length < 8) {
+    errorDiv.textContent = 'Password must be at least 8 characters.';
+    errorDiv.style.display = 'block';
+    return false;
+  }
+
+  btn.disabled = true;
+  errorDiv.style.display = 'none';
+
+  const endpoint = ${forced} ? '/dashboard/api/force-change-password' : '/dashboard/api/change-password';
+  const body = ${forced} ? JSON.stringify({ new: newPass }) : JSON.stringify({ current: document.getElementById('currentPass')?.value || '', new: newPass });
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: ${forced} ? JSON.stringify({ new: newPass }) : JSON.stringify({ current: '', new: newPass })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      successDiv.style.display = 'block';
+      setTimeout(() => window.location.href = '${redirectUrl}', 1500);
+    } else {
+      errorDiv.textContent = data.error || 'Failed to update password.';
+      errorDiv.style.display = 'block';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    errorDiv.textContent = 'Network error. Please try again.';
+    errorDiv.style.display = 'block';
+    btn.disabled = false;
+  }
+  return false;
+}
+  </script>
+</body>
+</html>`;
 }
