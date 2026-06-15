@@ -1,0 +1,74 @@
+{
+  "_instructions": "Fill in every field before running build_welcome_contract.py. Use ALL CAPS for dates (e.g. JUN 2, 2026). Use 'N/A' or 'PENDING' for unknown values — never leave a field blank.",
+
+  "property": {
+    "address_line1": "9716 Wild Mountain Dr.",
+    "address_line2": "Little Rock, AR 72210",
+    "purchase_price": "$335,000",
+    "earnest_money": "$0"
+  },
+
+  "timeline": {
+    "effective_date": "JUN 2, 2026",
+    "earnest_money_due": "JUN 4, 2026",
+    "inspection_date": "JUN 9, 2026",
+    "inspection_period_ends": "JUN 13, 2026",
+    "appraisal_date": "JUN 20, 2026",
+    "final_walk_through": "JUL 14, 2026",
+    "closing_date": "JUL 15, 2026"
+  },
+
+  "contacts": {
+    "title_company": {
+      "company": "Lender's Title Company",
+      "address": "203 Westport Drive #A\nCabot, AR 72023",
+      "contact_name": "Allison Wells / Rose Betcher",
+      "phone": "501-843-2128",
+      "email": "Email@company.com"
+    },
+    "lender": {
+      "company": "Fairway Independent Mortgage",
+      "address": "123 Street Address\nCity, State 12345",
+      "contact_name": "Contact Name",
+      "phone": "123-456-7890",
+      "email": "Email@company.com"
+    },
+    "home_inspections": {
+      "company": "Inspection Company Name",
+      "address": "",
+      "contact_name": "Contact Name",
+      "phone": "123-456-7890",
+      "email": "Email@company.com"
+    },
+    "survey_company": {
+      "company": "Kevin Beadle",
+      "address": "",
+      "contact_name": "",
+      "phone": "",
+      "email": "",
+      "note": "Title Company will order\nSurvey Authorization needed"
+    },
+    "home_insurance": {
+      "company": "Pending",
+      "address": "",
+      "contact_name": "Contact Name",
+      "phone": "123-456-7890",
+      "email": "Email@company.com"
+    }
+  },
+
+  "notes": [
+    "We will wait to order appraisal until we get through the inspection period.",
+    "We will need to send you a survey authorization to order the survey however we will wait on that also until we come to an agreement on repairs."
+  ],
+
+  "agent": {
+    "name": "Diana Dominguez",
+    "title": "REALTOR®",
+    "brokerage": "Signature Properties",
+    "phone": "325.829.2839",
+    "email": "Diana.dominguez@icloud.com",
+    "website": "www.pcsingtolittlerock.com",
+    "photo": "assets/dd-bodyshot.png"
+  }
+}

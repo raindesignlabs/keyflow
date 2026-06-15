@@ -1,0 +1,98 @@
+{
+  "_description": "Property Survey input schema for Diana Dominguez AI assistant. AI fills this from the buyer's contract, then the PDF generator renders it.",
+
+  "property": {
+    "address": "2352 Mount Tabor Rd, Cabot, AR 72023",
+    "mls_number": "",
+    "listing_agent": ""
+  },
+
+  "home_overview": {
+    "year_built": "2008",
+    "year_purchased": "2023",
+    "bedrooms": "4",
+    "full_bathrooms": "2",
+    "half_bathrooms": "0",
+    "garage_type": "Attached",
+    "garage_capacity": "2",
+    "square_footage": "",
+    "lot_size": "",
+    "stories": ""
+  },
+
+  "utilities": {
+    "electric_provider": "First Electric",
+    "electric_average_bill": "$250 (Levelized billing)",
+    "water_provider": "Grand Prairie Bayou",
+    "water_average_bill": "$40",
+    "trash_provider": "Zella's Trash",
+    "trash_average_bill": "$34.50",
+    "internet_provider": "Optimum",
+    "internet_average_bill": "$35.00",
+    "internet_speed": "500 Mbps+",
+    "gas_provider": "",
+    "gas_average_bill": ""
+  },
+
+  "major_systems": {
+    "heating_type": "Central Air / Electric",
+    "heating_age": "Unknown",
+    "cooling_type": "Central Air / Electric",
+    "cooling_age": "Unknown",
+    "water_heater_type": "Electric",
+    "roof_age": "2022",
+    "roof_type": "Shingle"
+  },
+
+  "appliances": {
+    "refrigerator": "Garage fridge will be moved back; current fridge removed",
+    "washer_dryer": "Removed",
+    "garage_door_remotes": "4",
+    "other": ""
+  },
+
+  "exterior_lot": {
+    "septic_or_sewer": "Septic",
+    "septic_tank_size": "Unknown",
+    "septic_last_cleaned": "2023",
+    "water_source": "Public — Grand Prairie Bayou Two",
+    "fence": "",
+    "sprinkler_system": "",
+    "pool": ""
+  },
+
+  "security_smart": {
+    "security_system": "ADT",
+    "cameras": "Convey (Reset and scan QR code in Google Home app)",
+    "smart_features": ""
+  },
+
+  "service_contracts": {
+    "termite_company": "Arkansas Exterminators",
+    "termite_annual_cost": "$172",
+    "other": ""
+  },
+
+  "hoa_financial": {
+    "insurance_company": "Progressive",
+    "insurance_annual_premium": "$3,596",
+    "annual_property_taxes": "$1,008.80",
+    "hoa_name": "",
+    "hoa_annual_fee": "",
+    "hoa_frequency": ""
+  },
+
+  "items_to_negotiate": "TV mount in living room will remain. Shoe rack in master bedroom remains. Curtain rods and mounts remain.",
+
+  "marketing": {
+    "prompt": "What do you love most about your home and neighborhood?",
+    "response": "I love that we are not in the city limits along with how big our property is. Roughly 4 acres with awesome country living in a suburban town."
+  },
+
+  "metadata": {
+    "prepared_for": "",
+    "prepared_by": "Diana Dominguez — Signature Properties",
+    "date_prepared": "",
+    "disclaimer": "Information provided is believed to be accurate but is not guaranteed. Buyers should independently verify all details."
+  }
+}

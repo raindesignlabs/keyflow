@@ -1,0 +1,7 @@
+From: James Jameson <james.w.jameson@gmail.com>
+To: assistant@raindesignlabs.net
+Subject: contract for client _TEST
+
+disregard - just a test
+<#part type=application/vnd.openxmlformats-officedocument.wordprocessingml.document filename="/tmp/RESIDENTIAL PURCHASE AND SALE AGREEMENT.docx"><#/part>
+

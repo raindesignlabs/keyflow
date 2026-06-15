@@ -1,0 +1,64 @@
+{
+  "property": {
+    "address_line1": "742 Evergreen Terrace",
+    "address_line2": "Little Rock, AR 72201",
+    "purchase_price": "$315,000",
+    "earnest_money": "$1,500"
+  },
+  "timeline": {
+    "effective_date": "OCT 28, 2025",
+    "earnest_money_due": "PENDING",
+    "inspection_date": "NOV 2, 2025",
+    "inspection_period_ends": "NOV 10, 2025",
+    "appraisal_date": "NOV 15, 2025",
+    "final_walk_through": "DEC 12, 2025",
+    "closing_date": "DEC 15, 2025"
+  },
+  "contacts": {
+    "title_company": {
+      "company": "Apex Title & Escrow",
+      "address": "500 West Capitol Ave, Suite 120, Little Rock, AR 72201",
+      "contact_name": "Jane Doe / John Smith",
+      "phone": "501-555-0143",
+      "email": "processing@apextitlear.com"
+    },
+    "lender": {
+      "company": "Pinnacle Home Loans",
+      "address": "1122 Financial Centre Pkwy, Little Rock, AR 72211",
+      "contact_name": "Robert Vance",
+      "phone": "501-555-0188",
+      "email": "r.vance@pinnaclehl.com"
+    },
+    "home_inspections": {
+      "company": "Vanguard Property Inspections",
+      "address": "",
+      "contact_name": "Marcus Brody",
+      "phone": "501-555-0112",
+      "email": "reports@vanguardinspections.com"
+    },
+    "survey_company": {
+      "company": "Landmark Surveying Inc.",
+      "contact_name": "David Miller",
+      "phone": "",
+      "email": "",
+      "note": "Title Company will order upon survey authorization approval."
+    },
+    "home_insurance": {
+      "company": "Shield Mutual Insurance",
+      "address": "",
+      "contact_name": "Amanda Ross",
+      "phone": "800-555-0199",
+      "email": "quotes@shieldmutual.com"
+    }
+  },
+  "notes": [],
+  "agent": {
+    "name": "Diana Dominguez",
+    "title": "REALTOR®",
+    "brokerage": "Signature Properties",
+    "phone": "325.829.2839",
+    "email": "Diana.dominguez@icloud.com",
+    "website": "www.pcsingtolittlerock.com",
+    "photo": "assets/dd-bodyshot-small-white.png"
+  }
+}

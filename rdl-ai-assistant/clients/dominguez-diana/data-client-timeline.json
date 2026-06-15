@@ -1,0 +1,67 @@
+{
+  "property": {
+    "address_line1": "412 N. Oak St",
+    "address_line2": "Jonesboro, AR 72401",
+    "purchase_price": "$319,000",
+    "earnest_money": "$0"
+  },
+  "timeline": {
+    "effective_date": "NOV 12, 2025",
+    "earnest_money_due": "N/A",
+    "inspection_date": "NOV 17, 2025",
+    "inspection_period_ends": "NOV 25, 2025",
+    "appraisal_date": "PENDING",
+    "final_walk_through": "DEC 29, 2025",
+    "closing_date": "DEC 29, 2025"
+  },
+  "contacts": {
+    "title_company": {
+      "company": "Delta Abstract & Title Company",
+      "address": "400 S. Main Street, Jonesboro AR 72401",
+      "contact_name": "Linda Harrison, Robert Blake",
+      "phone": "870-555-0123",
+      "email": "escrows@deltababstractar.com"
+    },
+    "lender": {
+      "company": "Southern Trust Mortgage",
+      "address": "",
+      "contact_name": "Gary Owen",
+      "phone": "870-555-0165",
+      "email": "g.owen@southerntrustmtg.net"
+    },
+    "home_inspections": {
+      "company": "Elite Property Inspections",
+      "address": "",
+      "contact_name": "",
+      "phone": "870-555-0188",
+      "email": "testing@elitepropinspections.com"
+    },
+    "survey_company": {
+      "company": "Barrett Land Surveys",
+      "contact_name": "",
+      "phone": "",
+      "email": "",
+      "note": "Title company will place the official order once the buyer signs the outstanding survey authorization form."
+    },
+    "home_insurance": {
+      "company": "",
+      "address": "",
+      "contact_name": "Karen Vance",
+      "phone": "800-555-0177",
+      "email": "kvance@vanceagency.com"
+    }
+  },
+  "notes": [
+    "Earnest money is pending re-negotiation.",
+    "Appraisal is pending until repairs are sorted."
+  ],
+  "agent": {
+    "name": "Diana Dominguez",
+    "title": "REALTOR®",
+    "brokerage": "Signature Properties",
+    "phone": "325.829.2839",
+    "email": "Diana.dominguez@icloud.com",
+    "website": "www.pcsingtolittlerock.com",
+    "photo": "assets/dd-bodyshot-small-white.png"
+  }
+}

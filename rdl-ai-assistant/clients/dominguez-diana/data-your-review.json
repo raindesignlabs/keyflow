@@ -1,0 +1,73 @@
+{
+  "property": {
+    "address_line1": "1144 Old Military Rd",
+    "address_line2": "Hot Springs, AR 71913",
+    "purchase_price": "$295,000",
+    "earnest_money": "$3,000"
+  },
+  "timeline": {
+    "effective_date": "NOV 15, 2025",
+    "earnest_money_due": "PENDING",
+    "inspection_date": "NOV 20, 2025",
+    "inspection_period_ends": "NOV 30, 2025",
+    "appraisal_date": "PENDING",
+    "final_walk_through": "JAN 15, 2026",
+    "closing_date": "JAN 15, 2026"
+  },
+  "contacts": {
+    "title_company": {
+      "company": "Ouachita Title & Escrow Services",
+      "address": "510 Ouachita Ave, Hot Springs, AR 71901",
+      "contact_name": "Megan Vance, Charles Cross",
+      "phone": "501-555-0194",
+      "email": "closings@ouachitatitle.com"
+    },
+    "lender": {
+      "company": "Bayou City Financial",
+      "address": "",
+      "contact_name": "Marcus Vance",
+      "phone": "501-555-0147",
+      "email": "m.vance@bayoucityfin.com"
+    },
+    "home_inspections": {
+      "company": "Arkansas Pro Inspections",
+      "address": "",
+      "contact_name": "Dale Jarvis",
+      "phone": "501-555-0133",
+      "email": "adjustments@arproinspections.com"
+    },
+    "survey_company": {
+      "company": "Vance & Associates Surveying",
+      "contact_name": "",
+      "phone": "",
+      "email": "",
+      "note": "Buyer refused to sign the survey authorization until seller agrees to pay for foundation repairs."
+    },
+    "home_insurance": {
+      "company": "Pioneer Casualty",
+      "address": "800-555-0155",
+      "contact_name": "Sarah Jenkins",
+      "phone": "800-555-0155",
+      "email": "s.jenkins@pioneercasualty.com"
+    }
+  },
+  "notes": [
+    "Title search revealed an unreleased 2018 construction lien.",
+    "Underwriting has issued a hard stop on financing approval.",
+    "Financing approval is contingent on signing a foundation repair escrow agreement.",
+    "Repair addendum negotiations are currently stalled over structural costs.",
+    "A secondary structural engineer report is required by the lender.",
+    "Contact information for the structural engineer is currently missing.",
+    "The home insurance policy was denied due to termite notation.",
+    "Alternative high-risk policy quotes are currently missing."
+  ],
+  "agent": {
+    "name": "Diana Dominguez",
+    "title": "REALTOR®",
+    "brokerage": "Signature Properties",
+    "phone": "325.829.2839",
+    "email": "Diana.dominguez@icloud.com",
+    "website": "www.pcsingtolittlerock.com",
+    "photo": "assets/dd-bodyshot-small-white.png"
+  }
+}

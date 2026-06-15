@@ -1,0 +1,64 @@
+{
+  "property": {
+    "address_line1": "804 Mockingbird Lane",
+    "address_line2": "Fayetteville, AR 72701",
+    "purchase_price": "$328,500",
+    "earnest_money": "$1,000"
+  },
+  "timeline": {
+    "effective_date": "NOV 5, 2025",
+    "earnest_money_due": "PENDING",
+    "inspection_date": "NOV 10, 2025",
+    "inspection_period_ends": "NOV 18, 2025",
+    "appraisal_date": "NOV 24, 2025",
+    "final_walk_through": "DEC 20, 2025",
+    "closing_date": "DEC 22, 2025"
+  },
+  "contacts": {
+    "title_company": {
+      "company": "Ozark Highlands Title",
+      "address": "220 North College Ave, Fayetteville, AR 72701",
+      "contact_name": "Eleanor Vance / Thomas Wright",
+      "phone": "479-555-0191",
+      "email": "team@ozarkhighlandstitle.com"
+    },
+    "lender": {
+      "company": "Liberty First Lending",
+      "address": "1500 West Wedington Dr, Fayetteville, AR 72704",
+      "contact_name": "Susan Campbell",
+      "phone": "479-555-0144",
+      "email": "s.campbell@libertyfirstlending.com"
+    },
+    "home_inspections": {
+      "company": "Premier Property Auditors",
+      "address": "",
+      "contact_name": "Arthur Pendelton",
+      "phone": "479-555-0157",
+      "email": "schedule@premierauditors.com"
+    },
+    "survey_company": {
+      "company": "Atlas Surveying & Mapping",
+      "contact_name": "Gregory Peck",
+      "phone": "",
+      "email": "",
+      "note": "Order pending client survey authorization."
+    },
+    "home_insurance": {
+      "company": "Sentinel Indemnity Group",
+      "address": "",
+      "contact_name": "James Brody",
+      "phone": "800-555-0168",
+      "email": "j.brody@sentinelindemnity.com"
+    }
+  },
+  "notes": [],
+  "agent": {
+    "name": "Diana Dominguez",
+    "title": "REALTOR®",
+    "brokerage": "Signature Properties",
+    "phone": "325.829.2839",
+    "email": "Diana.dominguez@icloud.com",
+    "website": "www.pcsingtolittlerock.com",
+    "photo": "assets/dd-bodyshot-small-white.png"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "property": {
+    "address": "123 Happy Lane, Anacortes, WA 98221",
+    "mls_number": "",
+    "listing_agent": ""
+  },
+  "home_overview": {
+    "year_built": "",
+    "year_purchased": "",
+    "bedrooms": "",
+    "full_bathrooms": "",
+    "half_bathrooms": "",
+    "garage_type": "Attached two-car garage",
+    "garage_capacity": "2",
+    "square_footage": "",
+    "lot_size": "",
+    "stories": ""
+  },
+  "utilities": {
+    "electric_provider": "",
+    "electric_average_bill": "",
+    "water_provider": "",
+    "water_average_bill": "",
+    "trash_provider": "",
+    "trash_average_bill": "",
+    "internet_provider": "",
+    "internet_average_bill": "",
+    "internet_speed": "",
+    "gas_provider": "",
+    "gas_average_bill": ""
+  },
+  "major_systems": {
+    "heating_type": "Electric heat pump and forced-air electric furnace",
+    "heating_age": "",
+    "cooling_type": "Electric heat pump",
+    "cooling_age": "",
+    "water_heater_type": "50-gallon hybrid heat pump",
+    "roof_age": "2018",
+    "roof_type": "Composition shingle"
+  },
+  "appliances": {
+    "refrigerator": "Stainless steel",
+    "washer_dryer": "",
+    "garage_door_remotes": "2",
+    "other": "Built-in dishwasher, electric range/oven, over-the-range microwave"
+  },
+  "exterior_lot": {
+    "septic_or_sewer": "",
+    "septic_tank_size": "",
+    "septic_last_cleaned": "",
+    "water_source": "",
+    "fence": "",
+    "sprinkler_system": "underground automatic sprinkler system",
+    "pool": ""
+  },
+  "security_smart": {
+    "security_system": "",
+    "cameras": "",
+    "smart_features": "Wall-mounted smart-entry keypad"
+  },
+  "service_contracts": {
+    "termite_company": "",
+    "termite_annual_cost": "",
+    "other": ""
+  },
+  "hoa_financial": {
+    "insurance_company": "",
+    "insurance_annual_premium": "",
+    "annual_property_taxes": "",
+    "hoa_name": "Happy Acres Community Association",
+    "hoa_annual_fee": "75.00",
+    "hoa_frequency": ""
+  },
+  "items_to_negotiate": "Roof Moss Treatment (professional moss removal and gutter cleaning prior to Closing), HVAC Air Filter (high-MERV filter replacement and duct cleaning), Backyard Shed (inclusion of the currently excluded freestanding garden shed), Closing Credits ($1,500 credit toward closing costs in lieu of repairing minor cosmetic scuffs in the primary bedroom)",
+  "marketing": {
+    "prompt": "What do you love most about your home and neighborhood?",
+    "response": ""
+  },
+  "metadata": {
+    "prepared_for": "",
+    "prepared_by": "Diana Dominguez — Signature Properties",
+    "date_prepared": "",
+    "disclaimer": "Information provided is believed to be accurate but is not guaranteed. Buyers should independently verify all details."
+  }
+}

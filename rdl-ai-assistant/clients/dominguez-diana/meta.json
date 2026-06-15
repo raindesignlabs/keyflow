@@ -1,0 +1,150 @@
+{
+  "full_name": "DIANA L. DOMINGUEZ",
+  "first_name": "DIANA",
+  "last_name": "DOMINGUEZ",
+  "email": "diana.dominguez@icloud.com",
+  "phone": "325.829.2839",
+  "website": "www.pcsingtolittlerock.com",
+  "company": "Signature Properties",
+  "signature": "V/R\nDiana Dominguez\nREALTOR®\nSignature Properties\ndiana.dominguez@icloud.com\nMobile: 325.829.2839\n415 N. McKinley S-525\nLittle Rock, AR 72205\nwww.pcsingtolittlerock.com",
+  "email_samples": [
+    "Hi!! 😊 Diana here with Signature Properties 🤍\n\nJust wanted to say welcome (or pre-welcome 😅) to Herk Nation! I know PCS season can feel a little overwhelming, so I wanted to check in and see what your timeline looks like.\n\nDo y'all already have orders? Are you hoping to buy or rent? When are you thinking you'll be here? I'm happy to help however I can!",
+    "Hi!! 😊 I'm Diana with Signature Properties. I just wanted to introduce myself and say welcome 🤍\n\nI help a lot of military families PCS in and out of Little Rock, and I know there are usually a million moving pieces 😅\n\nI'd love to learn a little more about your timeline! Do y'all already have orders? What's your ideal move window looking like? And are you thinking buying or renting right now?\n\nThanks!"
+  ],
+  "received": "2026-05-25 11:17-05:00",
+  "processed": "2026-05-25T18:05:10.179519",
+  "himalaya_id": "3",
+  "subject": "Answers....",
+  "folder": "dominguez-diana",
+  "has_pdf": true,
+  "paperclip_project_id": "bf6281d7-ae0d-4cff-a751-3053b6086df3",
+  "tools": {
+    "email_provider": "yahoo or icloud.",
+    "calendar": "Cozi.",
+    "showing_management": "ShowingTime",
+    "transaction_management": "Form simplicity",
+    "social_media": "pcsingtolittlerock on all platforms",
+    "website_idx": "www.pcsingtolittlerock.com"
+  },
+  "tool_recommendations": {
+    "email_provider": {
+      "current": "yahoo or icloud.",
+      "recommendation": {
+        "name": "Google Workspace",
+        "price": "$7.80/mo",
+        "reason": "Professional email (@yourdomain) + Google Calendar + Drive. Yahoo has no API for automation."
+      },
+      "alternatives": [
+        {
+          "name": "Keep Yahoo + forward",
+          "price": "Free",
+          "reason": "Lowest friction \u2014 forward to new inbox, keep old address active"
+        }
+      ]
+    },
+    "calendar": {
+      "current": "Cozi.",
+      "recommendation": {
+        "name": "Google Calendar",
+        "price": "Free",
+        "reason": "Better API integrations \u2014 connects to CRM, showing tools, and AI assistants. Cozi is family-oriented but lacks automation hooks."
+      },
+      "alternatives": [
+        {
+          "name": "Calendly",
+          "price": "$0-$16/mo",
+          "reason": "Client self-scheduling, auto-timezone for PCS families"
+        },
+        {
+          "name": "Cal.com",
+          "price": "$0-$12/mo",
+          "reason": "Open-source Calendly alternative, more customizable"
+        }
+      ]
+    },
+    "showing_management": {
+      "current": "ShowingTime",
+      "recommendation": {
+        "name": "ShowingTime (keep)",
+        "price": "Free via MLS",
+        "reason": "Industry standard, MLS-integrated. Keep as-is \u2014 it works."
+      },
+      "alternatives": [
+        {
+          "name": "BrokerBay",
+          "price": "Varies",
+          "reason": "Modern UI, better feedback collection"
+        }
+      ]
+    },
+    "transaction_management": {
+      "current": "Form simplicity",
+      "recommendation": {
+        "name": "Form Simplicity (keep)",
+        "price": "Free via association",
+        "reason": "Works fine for forms and e-signatures. Consider Dotloop later if you want built-in CRM."
+      },
+      "alternatives": [
+        {
+          "name": "Dotloop",
+          "price": "$29/mo",
+          "reason": "Transaction management + CRM combo, better collaboration"
+        },
+        {
+          "name": "SkySlope",
+          "price": "Broker-level",
+          "reason": "Full brokerage compliance \u2014 overkill for solo"
+        }
+      ]
+    },
+    "social_media": {
+      "current": "pcsingtolittlerock on all platforms",
+      "recommendation": {
+        "name": "ManyChat",
+        "price": "$15/mo",
+        "reason": "Automates lead responses across Instagram, Facebook, and SMS \u2014 the 3 channels that matter most."
+      },
+      "alternatives": [
+        {
+          "name": "Hootsuite",
+          "price": "$99/mo",
+          "reason": "Full social management but no lead automation"
+        },
+        {
+          "name": "Buffer",
+          "price": "$6/mo",
+          "reason": "Simple scheduling, no lead capture"
+        }
+      ]
+    },
+    "website_idx": {
+      "current": "www.pcsingtolittlerock.com",
+      "recommendation": {
+        "name": "Keep current website",
+        "price": "$0",
+        "reason": "Your website already generates leads \u2014 we add AI to capture and respond to them."
+      },
+      "alternatives": []
+    },
+    "crm": {
+      "current": "None",
+      "recommendation": {
+        "name": "Follow Up Boss",
+        "price": "$69/mo",
+        "reason": "Built for real estate \u2014 lead routing, automated follow-ups, showing coordination. Best ROI for solo agents."
+      },
+      "alternatives": [
+        {
+          "name": "kvCORE",
+          "price": "$499/mo",
+          "reason": "Full brokerage platform, IDX website included \u2014 overkill for solo"
+        },
+        {
+          "name": "Real Geeks",
+          "price": "$299/mo",
+          "reason": "Good CRM + website combo, but steeper learning curve"
+        }
+      ]
+    }
+  }
+}

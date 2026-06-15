@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# macOS
+.DS_Store
+._.DS_Store
+
+# Logs
+*.log
+
+# OpenClaw / agent state
+.omc/
+
+# Junk files
+47ru
+47ru47ru
+
+# macOS resource forks (._* pattern)
+._*
+**/>._*
